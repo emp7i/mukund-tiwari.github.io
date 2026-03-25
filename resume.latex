@@ -1,7 +1,7 @@
 \documentclass[a4paper,10pt]{article}
 
 %%%%%%% --------------------------------------------------------------------------------------
-%%%%%%%  STARTING HERE, DO NOT TOUCH ANYTHING 
+%%%%%%%  STARTING HERE, DO NOT TOUCH ANYTHING
 %%%%%%% --------------------------------------------------------------------------------------
 
 \usepackage{latexsym}
@@ -36,7 +36,7 @@ ItalicFont=SourceSansPro-RegularIt.otf
 
 %%%% Set Page
 \pagestyle{fancy}
-\fancyhf{} 
+\fancyhf{}
 \fancyfoot{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
@@ -69,7 +69,7 @@ ItalicFont=SourceSansPro-RegularIt.otf
 
 %%%% Set Sections formatting
 \titleformat{\section}{
-\color{UI_blue} \scshape \raggedright \large 
+\color{UI_blue} \scshape \raggedright \large
 }{}{0em}{}[\vspace{-10pt} \hrulefill \vspace{-6pt}]
 
 %%%% Set Subtext Formatting
@@ -89,7 +89,7 @@ ItalicFont=SourceSansPro-RegularIt.otf
 \textbf{\bfseries #1} }
 
 %%%% Set Subsection formatting
-\titleformat{\subsection}{\vspace{-0.1cm} 
+\titleformat{\subsection}{\vspace{-0.1cm}
 \bfseries \fontsize{11pt}{2cm}}{}{0em}{}[\vspace{-0.2cm}]
 
 %%%%%%% --------------------------------------------------------------------------------------
@@ -107,81 +107,91 @@ ItalicFont=SourceSansPro-RegularIt.otf
     \begin{minipage}[b]{0.24\textwidth}
             Bengaluru, India \\
             (+91)9013799412 \\
-            \href{mailto:mukundtiwari@outlook.com}{mukundtiwari@outlook.com} 
-    \end{minipage}% 
+            \href{mailto:mukundtiwari@outlook.com}{mukundtiwari@outlook.com}
+    \end{minipage}%
     \begin{minipage}[b]{0.5\textwidth}
             \centering
             {\Huge Mukund Tiwari} \\ %
             \vspace{0.1cm}
-    \end{minipage}% 
+            {\normalsize Infrastructure \& Inference (AI) Engineer}
+    \end{minipage}%
     \begin{minipage}[b]{0.24\textwidth}
             \flushright
             { \href{https://www.linkedin.com/in/mukund-tiwari-184203191/}{LinkedIn Profile} } \\
-    \end{minipage}   
-    
-\vspace{-0.15cm} 
+    \end{minipage}
+
+\vspace{-0.15cm}
 
 \end{center}
 
 \section{Summary}
 \subsection{}
-    A DevOps Engineer with over five years of experience, specializing in high-scale AWS infrastructure, Kubernetes management, and automation. Successfully managed infrastructure scaling to handle millions of concurrent users, implemented robust CI/CD pipelines, and led critical cloud migrations. Expert in infrastructure as code, security best practices, and SRE principles.
+    Infrastructure and Inference Engineer with \textbf{5+ years} of experience building and scaling \textbf{high-traffic AWS infrastructure}, \textbf{GPU-based inference systems}, and production \textbf{Kubernetes} platforms. Proven track record in \textbf{load testing at 10M+ TPM scale}, self-hosting ML models serving \textbf{30\% of production traffic}, and driving \textbf{68\% inference cost reductions}. Strong in \textbf{Terraform IaC}, \textbf{CI/CD automation}, and \textbf{cloud security hardening}.
 
 %%%%%%% --------------------------------------------------------------------------------------
 %%%%%%%  WORK EXPERIENCE
 %%%%%%% --------------------------------------------------------------------------------------
-\section{Experience}        
+\section{Experience}
 
 %%%%%%% ----------------------------------- Role 5 ----------------------------------- %%%%%%%
-\subsection*{Senior DevOps Engineer, Primetrace \hfill Dec 2024 --- Present} 
+\subsection*{Senior DevOps Engineer, Primetrace \hfill Dec 2024 --- Present}
     \begin{zitemize}
-        \item Led infrastructure scaling that handled 1.6M concurrent users and 6M DAU during peak events, supporting revenue of INR 4Cr in 36 hours, in a lean 2-person DevOps team.
-        \item Conducted end-to-end load testing using Locust, achieving 3.6M TPM peak on backend APIs.
-        \item Developed CI/CD automation using GitHub Actions and Slack integration, enabling Android team to trigger builds and Play Store deployments via slash commands.
-        \item Enforced MFA for AWS Console access and implemented DB audit logging for non-app users via Pritunl VPN setup, strengthening security posture and compliance.
+        \item Owned \textbf{end-to-end load testing} for Crafto's peak traffic events, preparing the platform to handle \textbf{$\sim$10M TPM}; system scaled to \textbf{1.6M concurrent users} and \textbf{6M DAU}, supporting \textbf{INR 4Cr revenue in 36 hours}.
+        \item Deployed \textbf{self-hosted inference} models (\textbf{flux2-dev-32b 4-bit quantised}, \textbf{flux2-klein-4b}) now serving \textbf{30\% of production traffic}, reducing per-inference cost from \textbf{INR 3.5--4 to INR 0.8}.
+        \item Optimized \textbf{GPU infrastructure} for Pixora upscaling from \textbf{2$\times$A100 80GB (\$11/hr)} to \textbf{1$\times$L40S (\$3.5/hr)} --- \textbf{68\% cost reduction}. Moved Sundar AI \& Looks AI upscaling fully self-hosted, eliminating \textbf{\$3,200/mo} Replicate spend.
+        \item Self-hosted \textbf{Codeformer} and \textbf{GFPGAN} upscalers on dedicated infrastructure, improving \textbf{latency}, \textbf{uptime}, and \textbf{cost control}; self-hosted path absorbed traffic during third-party outages reducing customer-facing errors.
+        \item Built \textbf{Android CI/CD} end-to-end via \textbf{GitHub Actions + Slack}, replacing manual builds --- now critical infrastructure for the entire Crafto Android team.
+        \item Implemented \textbf{DB audit logs} exported to \textbf{CloudWatch} and built internal \textbf{DB user-management tool}, enabling compliance tracking and access governance across production databases.
+        \item Completed \textbf{zero-downtime MySQL upgrade} (\textbf{8.0.42 $\rightarrow$ 8.4.7}) on major production DB; created reusable \textbf{Terraform module} for \textbf{EKS Pod Identity} reducing setup from 3 resources to 1 declaration (\textbf{3$\times$ productivity}).
+        \item Implemented automated \textbf{backup and restore} for critical systems (\textbf{Argo Workflows}, \textbf{Vault}, \textbf{Route53}, \textbf{Pritunl VPN}) using \textbf{K8s CronJobs + S3}.
+        \item Enabled \textbf{ARM64/Graviton} deployments for Kutumb, reducing compute costs. Architected and managed complete \textbf{AWS infrastructure} end-to-end in a lean \textbf{2-person DevOps team}.
+        \item Spearheaded migration from ClickOps to \textbf{Infrastructure as Code} across the organization, establishing security best practices.
     \end{zitemize}
 
 %%%%%%% ----------------------------------- Role 4 ----------------------------------- %%%%%%%
-\subsection*{DevOps Engineer, Ollion \hfill Aug 2022 --- Nov 2024} 
+\subsection*{DevOps Engineer, Ollion \hfill Aug 2022 --- Nov 2024}
     \begin{zitemize}
-        \item Optimized infrastructure for Indonesian Digital Bank, saving \$230,000/year through EC2 rightsizing, VPC endpoint consolidation (90\% reduction), and Kubernetes cost optimization.
-        \item Led migration of Indonesian OTT platform from GKE to AWS EKS, managing Terraform scripting, ingress controllers, and monitoring integration.
-        \item Enhanced security across 80+ AWS accounts for UK-based media organization, creating automation scripts for issue identification.
-        \item Executed cloud-to-cloud database migration from S3-Redshift to GCS-BigTable/BigQuery with secure VPN connectivity.
+        \item Saved \textbf{\$230,000/year} for Indonesian digital bank through \textbf{EC2 rightsizing} and \textbf{VPC endpoint consolidation} (\textbf{90\% reduction}).
+        \item Led migration of Indonesian OTT platform from \textbf{GKE to AWS EKS}, managing \textbf{Terraform}, ingress controllers, and monitoring.
+        \item Hardened security across \textbf{80+ AWS accounts} for UK-based media organization with automated compliance scripts.
+        \item Executed cross-cloud migration from \textbf{S3-Redshift} to \textbf{GCS-BigTable/BigQuery} with secure \textbf{VPN} connectivity.
     \end{zitemize}
 
-\subsection*{Senior Systems Engineer, Infosys \hfill Nov 2020 --- Aug 2022} 
+\subsection*{Senior Systems Engineer, Infosys \hfill Nov 2020 --- Aug 2022}
     \begin{zitemize}
-        \item Worked as Cloud Developer for the largest private bank in the world. Migrated on-prem Redis to Azure Cache for Redis and Go apps to AKS.
-        \item Worked as Cloud Engineer for a Fortune 500, American MNC that provides financial technology services. Migrated on-prem apps to cloud (AKS) using Terraform.
-        \item Received Certificate of Appreciation (INSTA AWARD) for cloud up-skilling efforts - 3 associate level certifications in 6 months, from Rajneesh Malviya, SVP-Service Offering Head-Financial Services.
-        \item Ranked in the 98th percentile for Digital Quotient (DQ) points, a singular measure of digital proficiency, among employees at Infosys.
-        %\item Trained as full stack developer. SQL Server - ASP.NET - Angular.
+        \item Migrated on-prem \textbf{Redis} to \textbf{Azure Cache} and \textbf{Go} apps to \textbf{AKS} for the world's largest private bank.
+        \item Led cloud migration to \textbf{AKS} using \textbf{Terraform} for a Fortune 500 financial technology company.
     \end{zitemize}
+
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  SKILLS
+%%%%%%% --------------------------------------------------------------------------------------
+\section{Skills}
+\begin{itemize}[leftmargin=*,itemsep=0pt,parsep=2pt]
+    \item \textbf{Cloud \& Infra:} AWS (EKS, EC2, RDS, S3, Route53, CloudWatch, Redshift, ELB, WAF), Azure (AKS, Azure Cache), GCP (GKE, BigQuery, BigTable)
+    \item \textbf{Orchestration \& IaC:} Kubernetes, Terraform, ArgoCD, Argo Workflows, Docker, Helm
+    \item \textbf{AI/ML Inference:} GPU Inference (A100, L40S, H100), Diffusion Models, Codeformer, GFPGAN, vLLM, LoRA
+    \item \textbf{Tools \& Languages:} GitHub Actions, Locust, Vault, Pritunl VPN, MySQL, Redis, Python, Bash
+\end{itemize}
 
 %%%%%%% --------------------------------------------------------------------------------------
 %%%%%%%  CERTIFICATIONS
 %%%%%%% --------------------------------------------------------------------------------------
 \section{Certifications}
 \begin{itemize}[leftmargin=*,itemsep=0pt,parsep=2pt]
-    \item AWS Certified Solutions Architect - Associate (Nov 2024)
-    \item Google Cloud Professional Cloud Security Engineer (Dec 2025)
-    \item Google Cloud Professional Cloud Architect (Jan 2025)
-    \item HashiCorp Certified: Terraform Associate (Nov 2024)
-    \item Microsoft Certified: Azure Administrator Associate (Jun 2024)
+    \item Google Cloud \textbf{Professional Cloud Security Engineer} | Google Cloud \textbf{Professional Cloud Architect}
+    \item AWS Certified \textbf{Solutions Architect} -- Associate | HashiCorp Certified: \textbf{Terraform Associate} | Microsoft Certified: \textbf{Azure Administrator}
 \end{itemize}
 
 %%%%%%% --------------------------------------------------------------------------------------
 %%%%%%%  EDUCATION
 %%%%%%% --------------------------------------------------------------------------------------
 \section{Education}
-\subsection*{Bachelor of Technology (B.Tech.), Electronics \& Communication Engineering (ECE), \hfill Oct 2020} 
-{\normalsize \normalfont Maharaja Agrasen Institute of Technology, Delhi} \\
-\subtext{CGPA: 7.33/10}
+\subsection*{B.Tech, Electronics \& Communication Engineering \hfill Oct 2020}
+{\normalsize \normalfont Maharaja Agrasen Institute of Technology, Delhi}
 \vspace{0.1cm}
-\subsection*{Class 12, CBSE, \hfill March 2016}
-{\normalsize \normalfont Apeejay School, Pitampura, Delhi} \\
-\subtext{Percentage: 94.6}
+\subsection*{Class 12, CBSE \hfill March 2016}
+{\normalsize \normalfont Apeejay School, Pitampura, Delhi}
 \vspace{0.2cm}
 
 \end{document}

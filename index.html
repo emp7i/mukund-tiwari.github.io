@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Head section remains the same until the body -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mukund Tiwari - DevOps Engineer Portfolio">
-    <title>Mukund Tiwari - DevOps Engineer</title>
+    <meta name="description" content="Mukund Tiwari - Infrastructure & Inference (AI) Engineer Portfolio">
+    <title>Mukund Tiwari - Infrastructure & Inference Engineer</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
     <style>
-        /* Previous CSS styles remain the same */
         :root {
             --primary-color: #2c3e50;
             --secondary-color: #34495e;
@@ -49,6 +47,12 @@
             gap: 1rem;
         }
 
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
         .contact-info {
             display: flex;
             flex-wrap: wrap;
@@ -66,7 +70,7 @@
 
         h1 {
             font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
         }
 
         h2 {
@@ -122,7 +126,11 @@
 
         .highlight {
             color: var(--accent-color);
-            font-weight: 500;
+            font-weight: 600;
+        }
+
+        strong {
+            font-weight: 600;
         }
 
         @media (max-width: 768px) {
@@ -149,7 +157,10 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <h1>Mukund Tiwari</h1>
+                <div>
+                    <h1>Mukund Tiwari</h1>
+                    <p class="subtitle">Infrastructure & Inference (AI) Engineer</p>
+                </div>
                 <div class="contact-info">
                     <span>📍 Bengaluru, India</span>
                     <span>📱 (+91)9013799412</span>
@@ -163,7 +174,7 @@
     <main class="container">
         <section>
             <h2>Summary</h2>
-            <p>A DevOps Engineer with over five years of experience, specializing in high-scale AWS infrastructure, Kubernetes management, and automation. Successfully managed infrastructure scaling to handle millions of concurrent users, implemented robust CI/CD pipelines, and led critical cloud migrations. Expert in infrastructure as code, security best practices, and SRE principles.</p>
+            <p>Infrastructure and Inference Engineer with <strong>5+ years</strong> of experience building and scaling <strong>high-traffic AWS infrastructure</strong>, <strong>GPU-based inference systems</strong>, and production <strong>Kubernetes</strong> platforms. Proven track record in <strong>load testing at 10M+ TPM scale</strong>, self-hosting ML models serving <strong>30% of production traffic</strong>, and driving <strong>68% inference cost reductions</strong>. Strong in <strong>Terraform IaC</strong>, <strong>CI/CD automation</strong>, and <strong>cloud security hardening</strong>.</p>
         </section>
 
         <section>
@@ -174,17 +185,16 @@
                     <span class="date">Dec 2024 — Present</span>
                 </div>
                 <ul>
-                    <li>Conducted end-to-end load testing using Locust, achieving <span class="highlight">3.6M TPM</span> peak on backend APIs</li>
-                    <li>Enforced MFA for AWS Console access across the organization, strengthening security posture and compliance</li>
-                    <li>Implemented automated backup solution for critical infrastructure components (Argo Workflows, ArgoCD, Vault secrets, Route53 zones, Pritunl VPN) using Kubernetes CronJobs and S3</li>
-                    <li>Developed reusable Terraform module for EKS Pod Identity Association, simplifying IAM integration for Kubernetes workloads</li>
-                    <li>Self-deployed Codeformer API infrastructure in a single day, demonstrating rapid delivery capability</li>
-                    <li>Implemented ARM64 deployment support for Kutumb, enabling cost-efficient Graviton-based workloads</li>
-                    <li>Implemented database audit logging exclusively for non-application users via sophisticated Pritunl VPN setup, ensuring compliance without performance overhead</li>
-                    <li>Led infrastructure scaling that successfully handled <span class="highlight">1.6M concurrent users</span> and <span class="highlight">6M DAU</span> during peak events, supporting revenue generation of <span class="highlight">INR 4Cr in 36 hours</span></li>
-                    <li>Architected and managed complete AWS infrastructure including EKS clusters, RDS databases, and Route53 hosted zones in a lean 2-person DevOps team</li>
-                    <li>Developed sophisticated CI/CD automation using GitHub Actions and Slack integration, enabling Android team to trigger builds and Play Store deployments via slash commands with comprehensive error handling and notifications</li>
-                    <li>Spearheaded migration from ClickOps to Infrastructure as Code (IaC) and established security best practices across the organization</li>
+                    <li>Owned <strong>end-to-end load testing</strong> for Crafto's peak traffic events, preparing the platform to handle <span class="highlight">~10M TPM</span>; system scaled to <span class="highlight">1.6M concurrent users</span> and <span class="highlight">6M DAU</span>, supporting revenue of <span class="highlight">INR 4Cr in 36 hours</span></li>
+                    <li>Deployed <strong>self-hosted inference</strong> models (<strong>flux2-dev-32b 4-bit quantised</strong>, <strong>flux2-klein-4b</strong>) now serving <span class="highlight">30% of production traffic</span>, reducing per-inference cost from <span class="highlight">INR 3.5–4 to INR 0.8</span></li>
+                    <li>Optimized <strong>GPU infrastructure</strong> for Pixora upscaling from <strong>2x A100 80GB</strong> ($11/hr) to <strong>1x L40S</strong> ($3.5/hr) — <span class="highlight">68% cost reduction</span>. Moved Sundar AI & Looks AI upscaling fully self-hosted, eliminating <span class="highlight">$3,200/mo</span> Replicate spend</li>
+                    <li>Self-hosted <strong>Codeformer</strong> and <strong>GFPGAN</strong> upscalers on dedicated infrastructure, improving <strong>latency</strong>, <strong>uptime</strong>, and <strong>cost control</strong>; self-hosted path absorbed traffic during third-party outages reducing customer-facing errors</li>
+                    <li>Built <strong>Android CI/CD</strong> end-to-end via <strong>GitHub Actions + Slack</strong>, replacing manual builds — now critical infrastructure for the entire Crafto Android team</li>
+                    <li>Implemented <strong>DB audit logs</strong> exported to <strong>CloudWatch</strong> and built internal <strong>DB user-management tool</strong>, enabling compliance tracking and access governance across production databases</li>
+                    <li>Completed <strong>zero-downtime MySQL upgrade</strong> (<span class="highlight">8.0.42 → 8.4.7</span>) on major production DB; created reusable <strong>Terraform module</strong> for <strong>EKS Pod Identity</strong> reducing setup from 3 resources to 1 declaration (<span class="highlight">3x productivity</span>)</li>
+                    <li>Implemented automated <strong>backup solution</strong> for critical infrastructure (<strong>Argo Workflows</strong>, <strong>ArgoCD</strong>, <strong>Vault</strong>, <strong>Route53</strong>, <strong>Pritunl VPN</strong>) using <strong>Kubernetes CronJobs</strong> and <strong>S3</strong></li>
+                    <li>Enabled <strong>ARM64/Graviton</strong> deployments for Kutumb, reducing compute costs. Architected and managed complete <strong>AWS infrastructure</strong> end-to-end in a lean <strong>2-person DevOps team</strong></li>
+                    <li>Spearheaded migration from ClickOps to <strong>Infrastructure as Code (IaC)</strong> and established security best practices across the organization</li>
                 </ul>
             </div>
             <div class="experience-item">
@@ -193,10 +203,10 @@
                     <span class="date">Aug 2022 — Nov 2024</span>
                 </div>
                 <ul>
-                    <li>Optimized infrastructure costs saving <span class="highlight">$230,000/year</span> through EC2 rightsizing and VPC endpoint consolidation (<span class="highlight">90% reduction</span>) for an Indonesian digital bank</li>
-                    <li>Led migration of Indonesian OTT platform from GKE to AWS EKS</li>
-                    <li>Enhanced security across 80+ AWS accounts for UK-based media organization</li>
-                    <li>Executed cloud-to-cloud database migration from S3-Redshift to GCS-BigTable/BigQuery</li>
+                    <li>Saved <span class="highlight">$230,000/year</span> for Indonesian digital bank through <strong>EC2 rightsizing</strong> and <strong>VPC endpoint consolidation</strong> (<span class="highlight">90% reduction</span>)</li>
+                    <li>Led migration of Indonesian OTT platform from <strong>GKE to AWS EKS</strong>, managing <strong>Terraform</strong>, ingress controllers, and monitoring</li>
+                    <li>Hardened security across <span class="highlight">80+ AWS accounts</span> for UK-based media organization with automated compliance scripts</li>
+                    <li>Executed cross-cloud migration from <strong>S3-Redshift</strong> to <strong>GCS-BigTable/BigQuery</strong> with secure <strong>VPN</strong> connectivity</li>
                 </ul>
             </div>
             <div class="experience-item">
@@ -205,37 +215,39 @@
                     <span class="date">Nov 2020 — Aug 2022</span>
                 </div>
                 <ul>
-                    <li>Migrated on-prem Redis to Azure Cache and Go apps to AKS for the largest private bank in the world</li>
-                    <li>Led cloud migration projects using Terraform and AKS for the largest credit processor in the world</li>
-                    <li>Received Certificate of Appreciation (INSTA AWARD) for cloud up-skilling — 3 associate certifications in 6 months</li>
-                    <li>Ranked in 98th percentile for Digital Quotient among Infosys employees</li>
+                    <li>Migrated on-prem <strong>Redis</strong> to <strong>Azure Cache</strong> and <strong>Go</strong> apps to <strong>AKS</strong> for the world's largest private bank</li>
+                    <li>Led cloud migration to <strong>AKS</strong> using <strong>Terraform</strong> for a Fortune 500 financial technology company</li>
                 </ul>
             </div>
         </section>
 
-        <!-- Certifications and Education sections remain the same -->
+        <section>
+            <h2>Skills</h2>
+            <ul>
+                <li><strong>Cloud & Infra:</strong> AWS (EKS, EC2, RDS, S3, Route53, CloudWatch, Redshift, ELB, WAF), Azure (AKS, Azure Cache), GCP (GKE, BigQuery, BigTable)</li>
+                <li><strong>Orchestration & IaC:</strong> Kubernetes, Terraform, ArgoCD, Argo Workflows, Docker, Helm</li>
+                <li><strong>AI/ML Inference:</strong> GPU Inference (A100, L40S, H100), Diffusion Models, Codeformer, GFPGAN, vLLM, LoRA</li>
+                <li><strong>Tools & Languages:</strong> GitHub Actions, Locust, Vault, Pritunl VPN, MySQL, Redis, Python, Bash</li>
+            </ul>
+        </section>
+
         <section>
             <h2>Certifications</h2>
             <div class="certifications">
                 <div class="cert-item">
-                    <p>AWS Certified Solutions Architect - Associate</p>
-                    <small>Valid until Nov 2024</small>
-                </div>
-                <div class="cert-item">
                     <p>Google Cloud Professional Cloud Security Engineer</p>
-                    <small>Valid until Dec 2025</small>
                 </div>
                 <div class="cert-item">
                     <p>Google Cloud Professional Cloud Architect</p>
-                    <small>Valid until Jan 2025</small>
+                </div>
+                <div class="cert-item">
+                    <p>AWS Certified Solutions Architect - Associate</p>
                 </div>
                 <div class="cert-item">
                     <p>HashiCorp Certified: Terraform Associate</p>
-                    <small>Valid until Nov 2024</small>
                 </div>
                 <div class="cert-item">
                     <p>Microsoft Certified: Azure Administrator Associate</p>
-                    <small>Valid until Jun 2024</small>
                 </div>
             </div>
         </section>
