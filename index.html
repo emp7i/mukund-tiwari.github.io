@@ -133,6 +133,20 @@
             font-weight: 600;
         }
 
+        /* ponytail: print stylesheet so Cmd+P / headless-chrome gives a clean resume PDF from the same source */
+        @media print {
+            @page { margin: 14mm 16mm; }
+            body { background: #fff; color: #000; line-height: 1.4; font-size: 10.5pt; }
+            header { background: none; color: #000; padding: 0 0 0.5rem; margin: 0 0 1rem; border-bottom: 2px solid #000; }
+            header a { color: #000 !important; }
+            .container { max-width: none; padding: 0; }
+            section { box-shadow: none; border-radius: 0; padding: 0; margin: 0 0 0.9rem; break-inside: avoid; }
+            h1 { font-size: 22pt; }
+            h2 { font-size: 12pt; border-bottom: 1px solid #999; padding-bottom: 2px; margin-bottom: 0.5rem; }
+            .highlight, .company { color: #000; }
+            a { text-decoration: none; }
+        }
+
         @media (max-width: 768px) {
             header {
                 padding: 1.5rem 0;
@@ -173,7 +187,7 @@
     <main class="container">
         <section>
             <h2>Summary</h2>
-            <p>Infrastructure and Inference Engineer with <strong>5+ years</strong> of experience building and scaling <strong>high-traffic AWS infrastructure</strong>, <strong>GPU-based inference systems</strong>, and production <strong>Kubernetes</strong> platforms. Proven track record in <strong>load testing at 10M+ TPM scale</strong>, self-hosting ML models serving <strong>30% of production traffic</strong>, and driving <strong>68% inference cost reductions</strong>. Strong in <strong>Terraform IaC</strong>, <strong>CI/CD automation</strong>, and <strong>cloud security hardening</strong>.</p>
+            <p>Infrastructure and Inference Engineer with <strong>5+ years</strong> of experience building and scaling <strong>high-traffic AWS infrastructure</strong>, <strong>GPU-based inference systems</strong>, and production <strong>Kubernetes</strong> platforms. Proven track record in <strong>load testing at 10M+ TPM scale</strong>, self-hosting ML/LLM models (<strong>vLLM</strong>) serving <strong>30% of production traffic</strong>, shipping <strong>real-time voice-AI over WebRTC</strong>, and driving <strong>68% inference cost reductions</strong>. Strong in <strong>Terraform IaC</strong>, <strong>CI/CD automation</strong>, and <strong>cloud security hardening</strong>.</p>
         </section>
 
         <section>
@@ -188,10 +202,17 @@
                     <li>Deployed <strong>self-hosted inference</strong> models (<strong>flux2-dev-32b 4-bit quantised</strong>, <strong>flux2-klein-4b</strong>) now serving <span class="highlight">30% of production traffic</span>, reducing per-inference cost from <span class="highlight">INR 3.5–4 to INR 0.8</span></li>
                     <li>Optimized <strong>GPU infrastructure</strong> for Pixora upscaling from <strong>2x A100 80GB</strong> ($11/hr) to <strong>1x L40S</strong> ($3.5/hr) — <span class="highlight">68% cost reduction</span>. Moved Sundar AI & Looks AI upscaling fully self-hosted, eliminating <span class="highlight">$3,200/mo</span> Replicate spend</li>
                     <li>Self-hosted <strong>Codeformer</strong> and <strong>GFPGAN</strong> upscalers on dedicated infrastructure, improving <strong>latency</strong>, <strong>uptime</strong>, and <strong>cost control</strong>; self-hosted path absorbed traffic during third-party outages reducing customer-facing errors</li>
+                    <li>Architected and shipped to production a <strong>real-time voice-AI calling stack</strong> on <strong>EKS</strong> — a <strong>coturn</strong> TURN relay behind an internet-facing <strong>NLB</strong> fronting <strong>viper</strong> (FastAPI + pipecat + aiortc) pods — delivering <span class="highlight">sub-second-latency</span> Android↔AI voice calls over <strong>SRTP/UDP</strong></li>
+                    <li>Self-hosted <strong>Gemma 26B via vLLM</strong>, extending the in-house inference platform and further reducing reliance on third-party LLM APIs</li>
+                    <li>Ran a <strong>self-hosted remove-bg POC</strong> that matched third-party <strong>unit economics</strong>, clearing the path to drop external vendor spend</li>
                     <li>Built <strong>Android CI/CD</strong> end-to-end via <strong>GitHub Actions + Slack</strong>, replacing manual builds — now critical infrastructure for the entire Crafto Android team</li>
                     <li>Implemented <strong>DB audit logs</strong> exported to <strong>CloudWatch</strong> and built internal <strong>DB user-management tool</strong>, enabling compliance tracking and access governance across production databases</li>
                     <li>Completed <strong>zero-downtime MySQL upgrade</strong> (<span class="highlight">8.0.42 → 8.4.7</span>) on major production DB; created reusable <strong>Terraform module</strong> for <strong>EKS Pod Identity</strong> reducing setup from 3 resources to 1 declaration (<span class="highlight">3x productivity</span>)</li>
                     <li>Implemented automated <strong>backup solution</strong> for critical infrastructure (<strong>Argo Workflows</strong>, <strong>ArgoCD</strong>, <strong>Vault</strong>, <strong>Route53</strong>, <strong>Pritunl VPN</strong>) using <strong>Kubernetes CronJobs</strong> and <strong>S3</strong></li>
+                    <li>Diagnosed and resolved a <strong>critical InnoDB history-length runaway</strong> on a production MySQL DB — traced to <strong>long-running transactions</strong> under <strong>REPEATABLE READ</strong> blocking <strong>undo-log purge</strong>, restoring purge throughput</li>
+                    <li>Rolled out <strong>KEDA</strong> event-driven autoscaling across most production workers with tuned <strong>Marbot</strong> alerting, right-sizing capacity to queue depth</li>
+                    <li>Prototyped passwordless <strong>RDS access via IAM database authentication</strong>, eliminating static DB credentials</li>
+                    <li>Implemented <strong>AWS WAF</strong> for Kutumb/Labs, hardening the edge through multi-day <strong>WAF log analysis</strong> and rule tuning</li>
                     <li>Enabled <strong>ARM64/Graviton</strong> deployments for Kutumb, reducing compute costs. Architected and managed complete <strong>AWS infrastructure</strong> end-to-end in a lean <strong>2-person DevOps team</strong></li>
                     <li>Spearheaded migration from ClickOps to <strong>Infrastructure as Code (IaC)</strong> and established security best practices across the organization</li>
                 </ul>
@@ -225,8 +246,17 @@
             <ul>
                 <li><strong>Cloud & Infra:</strong> AWS (EKS, EC2, RDS, S3, Route53, CloudWatch, Redshift, ELB, WAF), Azure (AKS, Azure Cache), GCP (GKE, BigQuery, BigTable)</li>
                 <li><strong>Orchestration & IaC:</strong> Kubernetes, Terraform, ArgoCD, Argo Workflows, Docker, Helm</li>
-                <li><strong>AI/ML Inference:</strong> GPU Inference (A100, L40S, H100), Diffusion Models, Codeformer, GFPGAN, vLLM, LoRA</li>
-                <li><strong>Tools & Languages:</strong> GitHub Actions, Locust, Vault, Pritunl VPN, MySQL, Redis, Python, Bash</li>
+                <li><strong>AI/ML Inference:</strong> GPU Inference (A100, L40S, H100), Diffusion Models, Codeformer, GFPGAN, vLLM, Gemma, LoRA</li>
+                <li><strong>Real-time Media:</strong> WebRTC, coturn (TURN/STUN), SRTP, NLB, pipecat, aiortc</li>
+                <li><strong>Scaling & Reliability:</strong> KEDA autoscaling, Locust load testing, MySQL/InnoDB internals, CloudWatch, Marbot</li>
+                <li><strong>Tools & Languages:</strong> GitHub Actions, Vault, Pritunl VPN, MySQL, Redis, Python, Bash</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Awards</h2>
+            <ul>
+                <li>🏆 <strong>1st place — AWS GameDay</strong> (Acquisition Meltdown · AWS DevOps Agent), a live multi-team competition across startups — led team to the <span class="highlight">top score (99,270)</span> with teammates placing <strong>2nd</strong> and <strong>3rd</strong></li>
             </ul>
         </section>
 
