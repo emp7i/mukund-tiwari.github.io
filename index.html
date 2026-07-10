@@ -1,303 +1,1062 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mukund Tiwari - Infrastructure & Inference (AI) Engineer Portfolio">
-    <title>Mukund Tiwari - Infrastructure & Inference Engineer</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Mukund Tiwari is an Infrastructure &amp; Inference Engineer building high-scale AWS platforms, production Kubernetes systems, and cost-efficient GPU inference."
+    />
+    <meta name="theme-color" content="#101915" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://empti.in/" />
+    <meta property="og:title" content="Mukund Tiwari — Infrastructure &amp; Inference Engineer" />
+    <meta
+      property="og:description"
+      content="Production platforms built for traffic spikes, real-time AI, and inference economics."
+    />
+    <meta name="twitter:card" content="summary" />
+    <link rel="canonical" href="https://empti.in/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Newsreader:opsz,wght@6..72,500;6..72,600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <title>Mukund Tiwari — Infrastructure &amp; Inference Engineer</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23101915'/><text x='50' y='67' text-anchor='middle' font-size='55' fill='%23f2ecdf'>MT</text></svg>"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Mukund Tiwari",
+        "url": "https://empti.in/",
+        "jobTitle": "Infrastructure & Inference Engineer",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bengaluru",
+          "addressCountry": "IN"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/mukund-tiwari-184203191/",
+          "https://github.com/emp7i"
+        ]
+      }
+    </script>
     <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #34495e;
-            --accent-color: #3498db;
-            --text-color: #333;
-            --light-bg: #f5f6fa;
+      :root {
+        --ink: #101915;
+        --paper: #f2ecdf;
+        --paper-deep: #e7decd;
+        --signal: #ec5b34;
+        --signal-soft: #ffb69f;
+        --green: #0f725d;
+        --line: rgba(16, 25, 21, 0.22);
+        --muted: #5f675f;
+        --display: "Newsreader", Georgia, serif;
+        --mono: "IBM Plex Mono", ui-monospace, monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        overflow-x: hidden;
+        color: var(--ink);
+        background:
+          linear-gradient(90deg, transparent 49.9%, rgba(16, 25, 21, 0.035) 50%),
+          var(--paper);
+        font-family: var(--mono);
+        font-size: 15px;
+        line-height: 1.65;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid var(--signal);
+        outline-offset: 4px;
+      }
+
+      .skip-link {
+        position: fixed;
+        z-index: 20;
+        top: 12px;
+        left: 12px;
+        padding: 10px 14px;
+        color: var(--paper);
+        background: var(--ink);
+        transform: translateY(-160%);
+        transition: transform 150ms ease;
+      }
+
+      .skip-link:focus {
+        transform: translateY(0);
+      }
+
+      .shell {
+        width: min(1440px, calc(100% - 48px));
+        margin: 0 auto;
+      }
+
+      .site-header {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav {
+        min-height: 78px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .mark {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      .mark::before {
+        content: "MT";
+        display: grid;
+        width: 42px;
+        aspect-ratio: 1;
+        place-items: center;
+        color: var(--paper);
+        background: var(--ink);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        font-size: 12px;
+      }
+
+      .nav-links a {
+        text-decoration-color: transparent;
+        text-underline-offset: 5px;
+        transition: text-decoration-color 150ms ease;
+      }
+
+      .nav-links a:hover {
+        text-decoration-color: var(--signal);
+      }
+
+      .hero {
+        position: relative;
+        min-height: 720px;
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) minmax(310px, 0.65fr);
+        align-items: end;
+        gap: clamp(40px, 7vw, 110px);
+        padding: clamp(80px, 10vw, 150px) 0 86px;
+        overflow: hidden;
+      }
+
+      .hero > *,
+      .section-head > *,
+      .experience-grid > *,
+      .contact-inner > * {
+        min-width: 0;
+      }
+
+      .hero::after {
+        content: "INFRA / INFERENCE";
+        position: absolute;
+        z-index: -1;
+        top: 9%;
+        right: -2%;
+        color: rgba(16, 25, 21, 0.04);
+        font: 500 clamp(72px, 13vw, 190px) / 0.78 var(--display);
+        letter-spacing: -0.065em;
+        writing-mode: vertical-rl;
+      }
+
+      .kicker,
+      .section-kicker,
+      .card-index,
+      .metric-label,
+      .availability {
+        margin: 0;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .kicker {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--green);
+      }
+
+      .kicker::before {
+        content: "";
+        width: 38px;
+        height: 2px;
+        background: var(--signal);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 920px;
+        margin: 26px 0 30px;
+        font: 600 clamp(70px, 9.2vw, 138px) / 0.82 var(--display);
+        letter-spacing: -0.066em;
+      }
+
+      h1 span {
+        display: block;
+        color: var(--signal);
+        font-style: italic;
+        font-weight: 500;
+      }
+
+      .hero-copy {
+        max-width: 760px;
+        margin-bottom: 0;
+        color: #2f3a34;
+        font: 500 clamp(21px, 2.15vw, 32px) / 1.32 var(--display);
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 36px;
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 49px;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 12px 18px;
+        border: 1px solid var(--ink);
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        transition:
+          transform 150ms ease,
+          box-shadow 150ms ease,
+          background 150ms ease,
+          color 150ms ease;
+      }
+
+      .button-primary {
+        color: var(--paper);
+        background: var(--ink);
+        box-shadow: 5px 5px 0 var(--signal);
+      }
+
+      .button:hover {
+        transform: translate(3px, 3px);
+      }
+
+      .button-primary:hover {
+        box-shadow: 2px 2px 0 var(--signal);
+      }
+
+      .button-secondary:hover {
+        color: var(--paper);
+        background: var(--green);
+      }
+
+      .hero-rail {
+        border-top: 2px solid var(--ink);
+      }
+
+      .rail-row {
+        display: grid;
+        grid-template-columns: 92px 1fr;
+        gap: 18px;
+        padding: 19px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .rail-row span:first-child {
+        color: var(--muted);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .rail-row span:last-child {
+        font-size: 13px;
+      }
+
+      .availability {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 24px;
+        color: var(--green);
+      }
+
+      .availability::before {
+        content: "";
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--green);
+        box-shadow: 0 0 0 5px rgba(15, 114, 93, 0.12);
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border: 1px solid var(--ink);
+        background: var(--ink);
+        color: var(--paper);
+      }
+
+      .metric {
+        min-height: 190px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 26px;
+        border-right: 1px solid rgba(242, 236, 223, 0.22);
+      }
+
+      .metric:last-child {
+        border-right: 0;
+      }
+
+      .metric-value {
+        font: 600 clamp(42px, 5vw, 76px) / 0.9 var(--display);
+        letter-spacing: -0.05em;
+      }
+
+      .metric-value em {
+        color: var(--signal-soft);
+        font-style: normal;
+      }
+
+      .metric-label {
+        max-width: 180px;
+        color: rgba(242, 236, 223, 0.62);
+        line-height: 1.45;
+      }
+
+      .section {
+        padding: 132px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .section-head {
+        display: grid;
+        grid-template-columns: 0.75fr 1.25fr;
+        gap: 40px;
+        margin-bottom: 62px;
+      }
+
+      .section-kicker {
+        color: var(--green);
+      }
+
+      h2 {
+        max-width: 820px;
+        margin-bottom: 0;
+        font: 600 clamp(46px, 6vw, 86px) / 0.95 var(--display);
+        letter-spacing: -0.045em;
+      }
+
+      .systems-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border-top: 2px solid var(--ink);
+      }
+
+      .system-card {
+        min-width: 0;
+        padding: 30px 28px 34px 0;
+        border-right: 1px solid var(--line);
+      }
+
+      .system-card + .system-card {
+        padding-left: 28px;
+      }
+
+      .system-card:last-child {
+        padding-right: 0;
+        border-right: 0;
+      }
+
+      .card-index {
+        margin-bottom: 84px;
+        color: var(--signal);
+      }
+
+      h3 {
+        margin-bottom: 18px;
+        font: 600 clamp(29px, 3vw, 43px) / 1 var(--display);
+        letter-spacing: -0.035em;
+      }
+
+      .system-card p:not(.card-index) {
+        color: var(--muted);
+      }
+
+      .system-result {
+        margin: 30px 0 0;
+        padding-top: 18px;
+        border-top: 1px solid var(--line);
+        color: var(--ink) !important;
+        font-size: 12px;
+      }
+
+      .system-result strong {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--green);
+        font: 600 24px / 1 var(--display);
+      }
+
+      .experience-grid {
+        display: grid;
+        grid-template-columns: 0.72fr 1.28fr;
+        gap: clamp(40px, 8vw, 130px);
+      }
+
+      .experience-intro {
+        position: sticky;
+        top: 30px;
+        align-self: start;
+      }
+
+      .experience-intro p:last-child {
+        max-width: 450px;
+        color: var(--muted);
+        font: 500 23px / 1.4 var(--display);
+      }
+
+      .timeline {
+        border-top: 2px solid var(--ink);
+      }
+
+      .role {
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        gap: 28px;
+        padding: 30px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .role-date {
+        color: var(--muted);
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .role h3 {
+        margin-bottom: 8px;
+        font-size: 31px;
+      }
+
+      .role-company {
+        margin-bottom: 18px;
+        color: var(--signal);
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .role p:last-child {
+        margin-bottom: 0;
+        color: var(--muted);
+      }
+
+      .capability-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        border-top: 2px solid var(--ink);
+      }
+
+      .capability {
+        min-height: 230px;
+        padding: 28px 42px 32px 0;
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .capability:nth-child(even) {
+        padding-right: 0;
+        padding-left: 42px;
+        border-right: 0;
+      }
+
+      .capability h3 {
+        margin-bottom: 40px;
+        font-size: 35px;
+      }
+
+      .capability p {
+        margin-bottom: 0;
+        color: var(--muted);
+      }
+
+      .proof-note {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 22px;
+        align-items: start;
+        margin-top: 48px;
+        padding: 28px;
+        border: 1px solid var(--ink);
+        background: var(--paper-deep);
+      }
+
+      .proof-badge {
+        display: grid;
+        width: 54px;
+        aspect-ratio: 1;
+        place-items: center;
+        color: var(--paper);
+        background: var(--green);
+        font: 600 28px / 1 var(--display);
+      }
+
+      .proof-note p {
+        margin-bottom: 0;
+      }
+
+      .proof-note strong {
+        display: block;
+        margin-bottom: 6px;
+        font-family: var(--display);
+        font-size: 24px;
+      }
+
+      .contact {
+        position: relative;
+        padding: 130px 0;
+        overflow: hidden;
+        background: var(--signal);
+        color: #fff8ef;
+      }
+
+      .contact::after {
+        content: "LET'S BUILD";
+        position: absolute;
+        right: -2%;
+        bottom: -24%;
+        color: rgba(16, 25, 21, 0.08);
+        font: 600 clamp(110px, 17vw, 270px) / 0.8 var(--display);
+        letter-spacing: -0.06em;
+        white-space: nowrap;
+      }
+
+      .contact-inner {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1.25fr 0.75fr;
+        gap: 70px;
+        align-items: end;
+      }
+
+      .contact h2 {
+        max-width: 900px;
+        margin: 18px 0 0;
+        color: var(--ink);
+      }
+
+      .contact-actions {
+        display: grid;
+        gap: 12px;
+      }
+
+      .contact-actions .button {
+        border-color: var(--ink);
+      }
+
+      .contact-actions .button-primary {
+        box-shadow: 5px 5px 0 #fff8ef;
+      }
+
+      footer {
+        padding: 34px 0;
+        background: var(--ink);
+        color: rgba(242, 236, 223, 0.65);
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        font-size: 11px;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+      }
+
+      .reveal {
+        animation: rise 700ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+      }
+
+      .reveal-delay-1 {
+        animation-delay: 100ms;
+      }
+
+      .reveal-delay-2 {
+        animation-delay: 200ms;
+      }
+
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+      }
+
+      @media (max-width: 980px) {
+        .hero,
+        .section-head,
+        .experience-grid,
+        .contact-inner {
+          grid-template-columns: 1fr;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        .hero {
+          min-height: auto;
+          align-items: start;
         }
 
-        body {
-            font-family: system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--light-bg);
+        .hero-rail {
+          max-width: 620px;
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .metrics {
+          grid-template-columns: repeat(2, 1fr);
         }
 
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 2rem 0;
-            margin-bottom: 2rem;
+        .metric:nth-child(2) {
+          border-right: 0;
         }
 
-        .header-content {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
+        .metric:nth-child(-n + 2) {
+          border-bottom: 1px solid rgba(242, 236, 223, 0.22);
         }
 
-        .subtitle {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            font-weight: 300;
+        .systems-grid {
+          grid-template-columns: 1fr;
         }
 
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            font-size: 0.9rem;
+        .system-card,
+        .system-card + .system-card {
+          padding: 30px 0;
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
         }
 
-        section {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        .card-index {
+          margin-bottom: 34px;
+        }
+
+        .experience-intro {
+          position: static;
+        }
+      }
+
+      @media (max-width: 680px) {
+        .shell {
+          width: min(100% - 30px, 1440px);
+        }
+
+        .nav {
+          min-height: 68px;
+        }
+
+        .nav-links a:not(:last-child) {
+          display: none;
+        }
+
+        .hero {
+          padding: 78px 0 64px;
         }
 
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.25rem;
+          font-size: clamp(60px, 20vw, 92px);
         }
 
-        h2 {
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
+        .hero-copy {
+          font-size: 21px;
         }
 
-        .experience-item {
-            margin-bottom: 2rem;
+        .hero-actions,
+        .button {
+          width: 100%;
         }
 
-        .experience-item:last-child {
-            margin-bottom: 0;
+        .metrics {
+          grid-template-columns: 1fr;
         }
 
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin-bottom: 0.5rem;
+        .metric,
+        .metric:nth-child(2) {
+          min-height: 155px;
+          border-right: 0;
+          border-bottom: 1px solid rgba(242, 236, 223, 0.22);
         }
 
-        .company {
-            font-weight: bold;
-            color: var(--accent-color);
+        .section {
+          padding: 90px 0;
         }
 
-        .date {
-            color: #666;
+        .role {
+          grid-template-columns: 1fr;
+          gap: 9px;
         }
 
-        .certifications {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
+        .capability-grid {
+          grid-template-columns: 1fr;
         }
 
-        .cert-item {
-            background: var(--light-bg);
-            padding: 1rem;
-            border-radius: 4px;
+        .capability,
+        .capability:nth-child(even) {
+          min-height: auto;
+          padding: 28px 0;
+          border-right: 0;
         }
 
-        .education-item {
-            margin-bottom: 1.5rem;
+        .capability h3 {
+          margin-bottom: 22px;
         }
 
-        ul {
-            list-style-position: inside;
-            margin-left: 1rem;
+        .proof-note {
+          grid-template-columns: 1fr;
         }
 
-        .highlight {
-            color: var(--accent-color);
-            font-weight: 600;
+        .footer-inner {
+          flex-direction: column;
+        }
+      }
+
+      @media print {
+        .nav,
+        .hero-actions,
+        .contact,
+        footer {
+          display: none;
         }
 
-        strong {
-            font-weight: 600;
+        body {
+          background: white;
+          color: black;
         }
 
-        /* ponytail: print stylesheet so Cmd+P / headless-chrome gives a clean resume PDF from the same source */
-        @media print {
-            @page { margin: 14mm 16mm; }
-            body { background: #fff; color: #000; line-height: 1.4; font-size: 10.5pt; }
-            header { background: none; color: #000; padding: 0 0 0.5rem; margin: 0 0 1rem; border-bottom: 2px solid #000; }
-            header a { color: #000 !important; }
-            .container { max-width: none; padding: 0; }
-            section { box-shadow: none; border-radius: 0; padding: 0; margin: 0 0 0.9rem; break-inside: avoid; }
-            h1 { font-size: 22pt; }
-            h2 { font-size: 12pt; border-bottom: 1px solid #999; padding-bottom: 2px; margin-bottom: 0.5rem; }
-            .highlight, .company { color: #000; }
-            a { text-decoration: none; }
+        .hero,
+        .section {
+          min-height: auto;
+          padding: 28px 0;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
         }
 
-        @media (max-width: 768px) {
-            header {
-                padding: 1.5rem 0;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            section {
-                padding: 1.5rem;
-            }
-
-            .experience-header {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
         }
+      }
     </style>
-</head>
-<body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div>
-                    <h1>Mukund Tiwari</h1>
-                    <p class="subtitle">Infrastructure & Inference (AI) Engineer</p>
-                </div>
-                <div class="contact-info">
-                    <span>📍 Bengaluru, India</span>
-                    <span>📧 mukundtiwari@outlook.com</span>
-                    <span>🔗 <a href="https://www.linkedin.com/in/mukund-tiwari-184203191/" target="_blank" style="color: white;">LinkedIn</a></span>
-                </div>
-            </div>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+      <nav class="nav shell" aria-label="Primary navigation">
+        <a class="mark" href="#top">Mukund Tiwari</a>
+        <div class="nav-links">
+          <a href="#systems">Selected systems</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
         </div>
+      </nav>
     </header>
 
-    <main class="container">
-        <section>
-            <h2>Summary</h2>
-            <p>Infrastructure and Inference Engineer with <strong>5+ years</strong> of experience building and scaling <strong>high-traffic AWS infrastructure</strong>, <strong>GPU-based inference systems</strong>, and production <strong>Kubernetes</strong> platforms. Proven track record in <strong>load testing at 10M+ TPM scale</strong>, self-hosting ML/LLM models (<strong>vLLM</strong>) serving <strong>30% of production traffic</strong>, shipping <strong>real-time voice-AI over WebRTC</strong>, and driving <strong>68% inference cost reductions</strong>. Strong in <strong>Terraform IaC</strong>, <strong>CI/CD automation</strong>, and <strong>cloud security hardening</strong>.</p>
-        </section>
+    <main id="main">
+      <section class="hero shell" id="top">
+        <div>
+          <p class="kicker reveal">Infrastructure &amp; Inference Engineer</p>
+          <h1 class="reveal reveal-delay-1">
+            Systems that survive <span>the spike.</span>
+          </h1>
+          <p class="hero-copy reveal reveal-delay-2">
+            I build production AWS and Kubernetes platforms, make GPU inference
+            materially cheaper, and turn difficult operational paths into systems
+            teams can trust.
+          </p>
+          <div class="hero-actions reveal reveal-delay-2">
+            <a class="button button-primary" href="Mukund-Tiwari-Resume.pdf" download>
+              Download résumé <span aria-hidden="true">↓</span>
+            </a>
+            <a
+              class="button button-secondary"
+              href="https://www.linkedin.com/in/mukund-tiwari-184203191/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              LinkedIn <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
 
-        <section>
-            <h2>Experience</h2>
-            <div class="experience-item">
-                <div class="experience-header">
-                    <span class="company">Senior DevOps Engineer at Primetrace</span>
-                    <span class="date">Dec 2024 — Present</span>
-                </div>
-                <ul>
-                    <li>Owned <strong>end-to-end load testing</strong> for Crafto's peak traffic events, preparing the platform to handle <span class="highlight">~10M TPM</span>; system scaled to <span class="highlight">1.6M concurrent users</span> and <span class="highlight">6M DAU</span>, supporting revenue of <span class="highlight">INR 4Cr in 36 hours</span></li>
-                    <li>Deployed <strong>self-hosted inference</strong> models (<strong>flux2-dev-32b 4-bit quantised</strong>, <strong>flux2-klein-4b</strong>) now serving <span class="highlight">30% of production traffic</span>, reducing per-inference cost from <span class="highlight">INR 3.5–4 to INR 0.8</span></li>
-                    <li>Optimized <strong>GPU infrastructure</strong> for Pixora upscaling from <strong>2x A100 80GB</strong> ($11/hr) to <strong>1x L40S</strong> ($3.5/hr) — <span class="highlight">68% cost reduction</span>. Moved Sundar AI & Looks AI upscaling fully self-hosted, eliminating <span class="highlight">$3,200/mo</span> Replicate spend</li>
-                    <li>Self-hosted <strong>Codeformer</strong> and <strong>GFPGAN</strong> upscalers on dedicated infrastructure, improving <strong>latency</strong>, <strong>uptime</strong>, and <strong>cost control</strong>; self-hosted path absorbed traffic during third-party outages reducing customer-facing errors</li>
-                    <li>Architected and shipped to production a <strong>real-time voice-AI calling stack</strong> on <strong>EKS</strong> — a <strong>coturn</strong> TURN relay behind an internet-facing <strong>NLB</strong> fronting <strong>viper</strong> (FastAPI + pipecat + aiortc) pods — delivering <span class="highlight">sub-second-latency</span> Android↔AI voice calls over <strong>SRTP/UDP</strong></li>
-                    <li>Self-hosted <strong>Gemma 26B via vLLM</strong>, extending the in-house inference platform and further reducing reliance on third-party LLM APIs</li>
-                    <li>Ran a <strong>self-hosted remove-bg POC</strong> that matched third-party <strong>unit economics</strong>, clearing the path to drop external vendor spend</li>
-                    <li>Built <strong>Android CI/CD</strong> end-to-end via <strong>GitHub Actions + Slack</strong>, replacing manual builds — now critical infrastructure for the entire Crafto Android team</li>
-                    <li>Implemented <strong>DB audit logs</strong> exported to <strong>CloudWatch</strong> and built internal <strong>DB user-management tool</strong>, enabling compliance tracking and access governance across production databases</li>
-                    <li>Completed <strong>zero-downtime MySQL upgrade</strong> (<span class="highlight">8.0.42 → 8.4.7</span>) on major production DB; created reusable <strong>Terraform module</strong> for <strong>EKS Pod Identity</strong> reducing setup from 3 resources to 1 declaration (<span class="highlight">3x productivity</span>)</li>
-                    <li>Implemented automated <strong>backup solution</strong> for critical infrastructure (<strong>Argo Workflows</strong>, <strong>ArgoCD</strong>, <strong>Vault</strong>, <strong>Route53</strong>, <strong>Pritunl VPN</strong>) using <strong>Kubernetes CronJobs</strong> and <strong>S3</strong></li>
-                    <li>Diagnosed and resolved a <strong>critical InnoDB history-length runaway</strong> on a production MySQL DB — traced to <strong>long-running transactions</strong> under <strong>REPEATABLE READ</strong> blocking <strong>undo-log purge</strong>, restoring purge throughput</li>
-                    <li>Rolled out <strong>KEDA</strong> event-driven autoscaling across most production workers with tuned <strong>Marbot</strong> alerting, right-sizing capacity to queue depth</li>
-                    <li>Prototyped passwordless <strong>RDS access via IAM database authentication</strong>, eliminating static DB credentials</li>
-                    <li>Implemented <strong>AWS WAF</strong> for Kutumb/Labs, hardening the edge through multi-day <strong>WAF log analysis</strong> and rule tuning</li>
-                    <li>Enabled <strong>ARM64/Graviton</strong> deployments for Kutumb, reducing compute costs. Architected and managed complete <strong>AWS infrastructure</strong> end-to-end in a lean <strong>2-person DevOps team</strong></li>
-                    <li>Spearheaded migration from ClickOps to <strong>Infrastructure as Code (IaC)</strong> and established security best practices across the organization</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <div class="experience-header">
-                    <span class="company">DevOps Engineer at Ollion</span>
-                    <span class="date">Aug 2022 — Nov 2024</span>
-                </div>
-                <ul>
-                    <li>Saved <span class="highlight">$230,000/year</span> for Indonesian digital bank through <strong>EC2 rightsizing</strong> and <strong>VPC endpoint consolidation</strong> (<span class="highlight">90% reduction</span>)</li>
-                    <li>Led migration of Indonesian OTT platform from <strong>GKE to AWS EKS</strong>, managing <strong>Terraform</strong>, ingress controllers, and monitoring</li>
-                    <li>Hardened security across <span class="highlight">80+ AWS accounts</span> for UK-based media organization with automated compliance scripts</li>
-                    <li>Executed cross-cloud migration from <strong>S3-Redshift</strong> to <strong>GCS-BigTable/BigQuery</strong> with secure <strong>VPN</strong> connectivity</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <div class="experience-header">
-                    <span class="company">Senior Systems Engineer at Infosys</span>
-                    <span class="date">Nov 2020 — Aug 2022</span>
-                </div>
-                <ul>
-                    <li>Migrated on-prem <strong>Redis</strong> to <strong>Azure Cache</strong> and <strong>Go</strong> apps to <strong>AKS</strong> for the world's largest private bank</li>
-                    <li>Led cloud migration to <strong>AKS</strong> using <strong>Terraform</strong> for a Fortune 500 financial technology company</li>
-                </ul>
-            </div>
-        </section>
+        <aside class="hero-rail reveal reveal-delay-2" aria-label="Profile summary">
+          <div class="rail-row">
+            <span>Based</span>
+            <span>Bengaluru, India</span>
+          </div>
+          <div class="rail-row">
+            <span>Focus</span>
+            <span>Infrastructure · Kubernetes · GPU inference · Reliability</span>
+          </div>
+          <div class="rail-row">
+            <span>Scale</span>
+            <span>10M+ TPM · 1.6M concurrent users · production AI traffic</span>
+          </div>
+          <div class="rail-row">
+            <span>Stack</span>
+            <span>AWS · EKS · Terraform · vLLM · MySQL · WebRTC</span>
+          </div>
+          <p class="availability">Production infrastructure · Bengaluru</p>
+        </aside>
+      </section>
 
-        <section>
-            <h2>Skills</h2>
-            <ul>
-                <li><strong>Cloud & Infra:</strong> AWS (EKS, EC2, RDS, S3, Route53, CloudWatch, Redshift, ELB, WAF), Azure (AKS, Azure Cache), GCP (GKE, BigQuery, BigTable)</li>
-                <li><strong>Orchestration & IaC:</strong> Kubernetes, Terraform, ArgoCD, Argo Workflows, Docker, Helm</li>
-                <li><strong>AI/ML Inference:</strong> GPU Inference (A100, L40S, H100), Diffusion Models, Codeformer, GFPGAN, vLLM, Gemma, LoRA</li>
-                <li><strong>Real-time Media:</strong> WebRTC, coturn (TURN/STUN), SRTP, NLB, pipecat, aiortc</li>
-                <li><strong>Scaling & Reliability:</strong> KEDA autoscaling, Locust load testing, MySQL/InnoDB internals, CloudWatch, Marbot</li>
-                <li><strong>Tools & Languages:</strong> GitHub Actions, Vault, Pritunl VPN, MySQL, Redis, Python, Bash</li>
-            </ul>
-        </section>
+      <section class="metrics shell" aria-label="Selected impact metrics">
+        <article class="metric">
+          <span class="metric-value">10M<em>+</em></span>
+          <span class="metric-label">TPM prepared for peak-traffic load testing</span>
+        </article>
+        <article class="metric">
+          <span class="metric-value">30<em>%</em></span>
+          <span class="metric-label">of production traffic served by self-hosted models</span>
+        </article>
+        <article class="metric">
+          <span class="metric-value">68<em>%</em></span>
+          <span class="metric-label">GPU infrastructure cost reduction</span>
+        </article>
+        <article class="metric">
+          <span class="metric-value">$230<em>k</em></span>
+          <span class="metric-label">annual cloud savings delivered for a banking client</span>
+        </article>
+      </section>
 
-        <section>
-            <h2>Awards</h2>
-            <ul>
-                <li>🏆 <strong>1st place — AWS GameDay</strong> (Acquisition Meltdown · AWS DevOps Agent), a live multi-team competition across startups — led team to the <span class="highlight">top score (99,270)</span> with teammates placing <strong>2nd</strong> and <strong>3rd</strong></li>
-            </ul>
-        </section>
+      <section class="section shell" id="systems">
+        <div class="section-head">
+          <p class="section-kicker">01 / Selected systems</p>
+          <h2>Measured outcomes, not infrastructure theatre.</h2>
+        </div>
 
-        <section>
-            <h2>Certifications</h2>
-            <div class="certifications">
-                <div class="cert-item">
-                    <p>Google Cloud Professional Cloud Security Engineer</p>
-                </div>
-                <div class="cert-item">
-                    <p>Google Cloud Professional Cloud Architect</p>
-                </div>
-                <div class="cert-item">
-                    <p>AWS Certified Solutions Architect - Associate</p>
-                </div>
-                <div class="cert-item">
-                    <p>HashiCorp Certified: Terraform Associate</p>
-                </div>
-                <div class="cert-item">
-                    <p>Microsoft Certified: Azure Administrator Associate</p>
-                </div>
-            </div>
-        </section>
+        <div class="systems-grid">
+          <article class="system-card">
+            <p class="card-index">System 01 · Scale</p>
+            <h3>Peak-traffic platform readiness</h3>
+            <p>
+              Owned end-to-end load testing for revenue-critical traffic events,
+              turning capacity limits into an actionable scaling plan across the
+              production platform.
+            </p>
+            <p class="system-result">
+              <strong>1.6M concurrent users</strong>
+              6M DAU and INR 4Cr revenue supported in 36 hours.
+            </p>
+          </article>
 
-        <section>
-            <h2>Education</h2>
-            <div class="education-item">
-                <div class="experience-header">
-                    <span class="company">B.Tech in Electronics & Communication Engineering</span>
-                    <span class="date">Oct 2020</span>
-                </div>
-                <p>Maharaja Agrasen Institute of Technology, Delhi</p>
-            </div>
-            <div class="education-item">
-                <div class="experience-header">
-                    <span class="company">Class 12, CBSE</span>
-                    <span class="date">Mar 2016</span>
-                </div>
-                <p>Apeejay School, Pitampura, Delhi</p>
-            </div>
-        </section>
+          <article class="system-card">
+            <p class="card-index">System 02 · Economics</p>
+            <h3>Owned inference, lower unit cost</h3>
+            <p>
+              Deployed quantized diffusion models and Gemma via vLLM on dedicated
+              GPU infrastructure, reducing dependency on third-party inference APIs.
+            </p>
+            <p class="system-result">
+              <strong>INR 3.5–4 → INR 0.8</strong>
+              per inference, with self-hosted models serving 30% of production traffic.
+            </p>
+          </article>
+
+          <article class="system-card">
+            <p class="card-index">System 03 · Real-time</p>
+            <h3>Voice AI over private EKS</h3>
+            <p>
+              Built WebRTC media infrastructure with coturn behind an NLB, carrying
+              SRTP/UDP audio into private-subnet EKS workloads for real-time AI calls.
+            </p>
+            <p class="system-result">
+              <strong>Sub-second latency</strong>
+              across the Android-to-AI voice path.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section shell" id="experience">
+        <div class="experience-grid">
+          <div class="experience-intro">
+            <p class="section-kicker">02 / Experience</p>
+            <h2>From cloud migrations to production AI.</h2>
+            <p>
+              Five-plus years working across AWS, Azure, and GCP—with recent depth
+              in platform scale, inference infrastructure, databases, and reliability.
+            </p>
+          </div>
+
+          <div class="timeline">
+            <article class="role">
+              <p class="role-date">Dec 2024 — Present</p>
+              <div>
+                <h3>Senior DevOps Engineer</h3>
+                <p class="role-company">Primetrace</p>
+                <p>
+                  Own high-scale AWS infrastructure and production Kubernetes systems
+                  for consumer products; build self-hosted inference, real-time media,
+                  event-driven autoscaling, database reliability, WAF, and delivery automation.
+                </p>
+              </div>
+            </article>
+
+            <article class="role">
+              <p class="role-date">Aug 2022 — Nov 2024</p>
+              <div>
+                <h3>DevOps Engineer</h3>
+                <p class="role-company">Ollion</p>
+                <p>
+                  Delivered cloud cost optimization, GKE-to-EKS and cross-cloud data
+                  migrations, and automated security hardening across more than 80 AWS accounts.
+                </p>
+              </div>
+            </article>
+
+            <article class="role">
+              <p class="role-date">Nov 2020 — Aug 2022</p>
+              <div>
+                <h3>Senior Systems Engineer</h3>
+                <p class="role-company">Infosys</p>
+                <p>
+                  Migrated Redis and Go workloads to Azure-managed services and AKS
+                  with Terraform for major global financial institutions.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section shell" id="capabilities">
+        <div class="section-head">
+          <p class="section-kicker">03 / Working depth</p>
+          <h2>Built across the whole production path.</h2>
+        </div>
+
+        <div class="capability-grid">
+          <article class="capability">
+            <h3>Cloud &amp; platform</h3>
+            <p>
+              AWS, EKS, EC2, RDS, S3, Route53, CloudWatch, WAF, Azure AKS,
+              GCP GKE and BigQuery.
+            </p>
+          </article>
+          <article class="capability">
+            <h3>Orchestration &amp; IaC</h3>
+            <p>
+              Kubernetes, Terraform, ArgoCD, Argo Workflows, Docker, Helm,
+              KEDA, GitHub Actions.
+            </p>
+          </article>
+          <article class="capability">
+            <h3>Inference &amp; real-time</h3>
+            <p>
+              A100, L40S, H100, vLLM, Gemma, diffusion models, LoRA,
+              WebRTC, coturn, TURN/STUN and SRTP.
+            </p>
+          </article>
+          <article class="capability">
+            <h3>Reliability &amp; data</h3>
+            <p>
+              MySQL/InnoDB internals, Redis, load testing with Locust,
+              observability, backups, access governance, Python and Bash.
+            </p>
+          </article>
+        </div>
+
+        <div class="proof-note">
+          <span class="proof-badge" aria-hidden="true">1</span>
+          <p>
+            <strong>1st place — AWS GameDay</strong>
+            Led the top-scoring team in the Acquisition Meltdown / AWS DevOps Agent
+            competition, finishing with 99,270 points among competing startups.
+          </p>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <div class="contact-inner shell">
+          <div>
+            <p class="section-kicker">04 / Contact</p>
+            <h2>Building infrastructure that earns its complexity.</h2>
+          </div>
+          <div class="contact-actions">
+            <a class="button button-primary" href="mailto:mukundtiwari@outlook.com">
+              Email Mukund <span aria-hidden="true">↗</span>
+            </a>
+            <a
+              class="button button-secondary"
+              href="https://github.com/emp7i"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              GitHub <span aria-hidden="true">↗</span>
+            </a>
+            <a class="button button-secondary" href="Mukund-Tiwari-Resume.pdf" download>
+              Résumé PDF <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+        </div>
+      </section>
     </main>
-</body>
+
+    <footer>
+      <div class="footer-inner shell">
+        <span>Mukund Tiwari · Infrastructure &amp; Inference Engineer</span>
+        <span>Bengaluru · 2026</span>
+      </div>
+    </footer>
+  </body>
 </html>

@@ -136,22 +136,14 @@ ItalicFont=SourceSansPro-RegularIt.otf
 \subsection*{Senior DevOps Engineer, Primetrace \hfill Dec 2024 --- Present}
     \begin{zitemize}
         \item Owned \textbf{end-to-end load testing} for Crafto's peak traffic events, preparing the platform to handle \textbf{$\sim$10M TPM}; system scaled to \textbf{1.6M concurrent users} and \textbf{6M DAU}, supporting \textbf{INR 4Cr revenue in 36 hours}.
-        \item Deployed \textbf{self-hosted inference} models (\textbf{flux2-dev-32b 4-bit quantised}, \textbf{flux2-klein-4b}) now serving \textbf{30\% of production traffic}, reducing per-inference cost from \textbf{INR 3.5--4 to INR 0.8}.
+        \item Deployed \textbf{self-hosted inference} models (\textbf{flux2-dev-32b 4-bit quantised}, \textbf{flux2-klein-4b}) and LLMs (\textbf{Gemma 26B via vLLM}) now serving \textbf{30\% of production traffic}, reducing per-inference cost from \textbf{INR 3.5--4 to INR 0.8}.
         \item Optimized \textbf{GPU infrastructure} for Pixora upscaling from \textbf{2$\times$A100 80GB (\$11/hr)} to \textbf{1$\times$L40S (\$3.5/hr)} --- \textbf{68\% cost reduction}. Moved Sundar AI \& Looks AI upscaling fully self-hosted, eliminating \textbf{\$3,200/mo} Replicate spend.
-        \item Self-hosted \textbf{Codeformer} and \textbf{GFPGAN} upscalers on dedicated infrastructure, improving \textbf{latency}, \textbf{uptime}, and \textbf{cost control}; self-hosted path absorbed traffic during third-party outages reducing customer-facing errors.
-        \item Architected and shipped to production a \textbf{real-time voice-AI calling stack} on \textbf{EKS} --- a \textbf{coturn} TURN relay behind an internet-facing \textbf{NLB} fronting \textbf{viper} (FastAPI + pipecat + aiortc) pods --- delivering \textbf{sub-second-latency} Android$\leftrightarrow$AI voice calls over \textbf{SRTP/UDP}.
-        \item Self-hosted \textbf{Gemma 26B via vLLM}, extending the in-house inference platform and reducing reliance on third-party LLM APIs.
-        \item Ran a \textbf{self-hosted remove-bg POC} that matched third-party \textbf{unit economics}, clearing the path to drop external vendor spend.
+        \item Built the production \textbf{WebRTC media infrastructure} on \textbf{EKS} powering real-time voice-AI calls --- stood up a \textbf{coturn} TURN/STUN relay behind an internet-facing \textbf{NLB} to carry \textbf{SRTP/UDP} audio into private-subnet pods, enabling \textbf{sub-second-latency} Android$\leftrightarrow$AI voice.
         \item Built \textbf{Android CI/CD} end-to-end via \textbf{GitHub Actions + Slack}, replacing manual builds --- now critical infrastructure for the entire Crafto Android team.
-        \item Implemented \textbf{DB audit logs} exported to \textbf{CloudWatch} and built internal \textbf{DB user-management tool}, enabling compliance tracking and access governance across production databases.
         \item Completed \textbf{zero-downtime MySQL upgrade} (\textbf{8.0.42 $\rightarrow$ 8.4.7}) on major production DB; created reusable \textbf{Terraform module} for \textbf{EKS Pod Identity} reducing setup from 3 resources to 1 declaration (\textbf{3$\times$ productivity}).
-        \item Implemented automated \textbf{backup and restore} for critical systems (\textbf{Argo Workflows}, \textbf{Vault}, \textbf{Route53}, \textbf{Pritunl VPN}) using \textbf{K8s CronJobs + S3}.
         \item Diagnosed and resolved a \textbf{critical InnoDB history-length runaway} on a production MySQL DB --- traced to \textbf{long-running transactions} under \textbf{REPEATABLE READ} blocking \textbf{undo-log purge}, restoring purge throughput.
         \item Rolled out \textbf{KEDA} event-driven autoscaling across most production workers with tuned \textbf{Marbot} alerting, right-sizing capacity to queue depth.
-        \item Prototyped passwordless \textbf{RDS access via IAM database authentication}, eliminating static DB credentials.
-        \item Implemented \textbf{AWS WAF} for Kutumb/Labs, hardening the edge through multi-day \textbf{WAF log analysis} and rule tuning.
-        \item Enabled \textbf{ARM64/Graviton} deployments for Kutumb, reducing compute costs. Architected and managed complete \textbf{AWS infrastructure} end-to-end in a lean \textbf{2-person DevOps team}.
-        \item Spearheaded migration from ClickOps to \textbf{Infrastructure as Code} across the organization, establishing security best practices.
+        \item Rolled out \textbf{AWS WAF} to production for Kutumb/Labs --- analysed multi-day \textbf{WAF logs} across iterations to eliminate false positives, then cut over to \textbf{block mode} on prod with \textbf{zero downtime}.
     \end{zitemize}
 
 %%%%%%% ----------------------------------- Role 4 ----------------------------------- %%%%%%%
@@ -165,8 +157,7 @@ ItalicFont=SourceSansPro-RegularIt.otf
 
 \subsection*{Senior Systems Engineer, Infosys \hfill Nov 2020 --- Aug 2022}
     \begin{zitemize}
-        \item Migrated on-prem \textbf{Redis} to \textbf{Azure Cache} and \textbf{Go} apps to \textbf{AKS} for the world's largest private bank.
-        \item Led cloud migration to \textbf{AKS} using \textbf{Terraform} for a Fortune 500 financial technology company.
+        \item Migrated on-prem \textbf{Redis} to \textbf{Azure Cache} and \textbf{Go} apps to \textbf{AKS} via \textbf{Terraform} for the world's largest private bank and a Fortune 500 fintech.
     \end{zitemize}
 
 %%%%%%% --------------------------------------------------------------------------------------
@@ -174,11 +165,10 @@ ItalicFont=SourceSansPro-RegularIt.otf
 %%%%%%% --------------------------------------------------------------------------------------
 \section{Skills}
 \begin{itemize}[leftmargin=*,itemsep=0pt,parsep=2pt]
-    \item \textbf{Cloud \& Infra:} AWS (EKS, EC2, RDS, S3, Route53, CloudWatch, Redshift, ELB, WAF), Azure (AKS, Azure Cache), GCP (GKE, BigQuery, BigTable)
+    \item \textbf{Cloud \& Infra:} AWS (EKS, EC2, RDS, S3, Route53, CloudWatch, WAF), Azure (AKS), GCP (GKE, BigQuery)
     \item \textbf{Orchestration \& IaC:} Kubernetes, Terraform, ArgoCD, Argo Workflows, Docker, Helm
     \item \textbf{AI/ML Inference:} GPU Inference (A100, L40S, H100), Diffusion Models, Codeformer, GFPGAN, vLLM, Gemma, LoRA
-    \item \textbf{Real-time Media:} WebRTC, coturn (TURN/STUN), SRTP, NLB, pipecat, aiortc
-    \item \textbf{Scaling \& Reliability:} KEDA autoscaling, Locust load testing, MySQL/InnoDB internals, CloudWatch, Marbot
+    \item \textbf{Scaling \& Real-time:} KEDA, Locust, WebRTC, coturn, SRTP, MySQL/InnoDB internals, CloudWatch, Marbot
     \item \textbf{Tools \& Languages:} GitHub Actions, Vault, Pritunl VPN, MySQL, Redis, Python, Bash
 \end{itemize}
 
@@ -188,15 +178,6 @@ ItalicFont=SourceSansPro-RegularIt.otf
 \section{Awards}
 \begin{itemize}[leftmargin=*,itemsep=0pt,parsep=2pt]
     \item \textbf{1st place --- AWS GameDay} (Acquisition Meltdown $\cdot$ AWS DevOps Agent) --- led team to the top score (99,270) among competing startups; teammates placed 2nd and 3rd.
-\end{itemize}
-
-%%%%%%% --------------------------------------------------------------------------------------
-%%%%%%%  CERTIFICATIONS
-%%%%%%% --------------------------------------------------------------------------------------
-\section{Certifications}
-\begin{itemize}[leftmargin=*,itemsep=0pt,parsep=2pt]
-    \item Google Cloud \textbf{Professional Cloud Security Engineer} | Google Cloud \textbf{Professional Cloud Architect}
-    \item AWS Certified \textbf{Solutions Architect} -- Associate | HashiCorp Certified: \textbf{Terraform Associate} | Microsoft Certified: \textbf{Azure Administrator}
 \end{itemize}
 
 %%%%%%% --------------------------------------------------------------------------------------
