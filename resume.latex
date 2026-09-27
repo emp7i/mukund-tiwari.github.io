@@ -117,7 +117,7 @@ ItalicFont=SourceSansPro-RegularIt.otf
     \begin{minipage}[b]{0.24\textwidth}
             \flushright
             { \href{https://www.linkedin.com/in/mukund-tiwari-184203191/}{LinkedIn Profile} } \\
-            { \href{https://medium.com/@mukundtiwari2}{Medium Blog} }
+            { \href{https://medium.com/@mukundtiwari2/how-did-we-load-test-for-100x-traffic-6cbccf22cf0f}{Blog: Load Testing for 100x} }
     \end{minipage}
 
 \vspace{-0.15cm}
@@ -136,7 +136,7 @@ ItalicFont=SourceSansPro-RegularIt.otf
 %%%%%%% ----------------------------------- Role 5 ----------------------------------- %%%%%%%
 \subsection*{Senior DevOps Engineer, Primetrace \hfill Dec 2024 --- Present}
     \begin{zitemize}
-        \item Owned \textbf{end-to-end load testing} for Crafto's peak traffic events, preparing the platform to handle \textbf{$\sim$10M TPM}; system scaled to \textbf{1.6M concurrent users} and \textbf{6M DAU}, supporting \textbf{INR 4Cr revenue in 36 hours}.
+        \item Owned \textbf{end-to-end load testing} for Crafto's peak traffic events, preparing the platform to handle \textbf{$\sim$10M TPM}; system scaled to \textbf{1.6M concurrent users} and \textbf{19M+ DAU}, supporting \textbf{INR 5.4Cr revenue in 48 hours}.
         \item Deployed \textbf{self-hosted inference} models (\textbf{flux2-dev-32b 4-bit quantised}, \textbf{flux2-klein-4b}) and LLMs (\textbf{Gemma 26B via vLLM}) now serving \textbf{30\% of production traffic}, reducing per-inference cost from \textbf{INR 3.5--4 to INR 0.8}.
         \item Optimized \textbf{GPU infrastructure} for Pixora upscaling from \textbf{2$\times$A100 80GB (\$11/hr)} to \textbf{1$\times$L40S (\$3.5/hr)} --- \textbf{68\% cost reduction}. Moved Sundar AI \& Looks AI upscaling fully self-hosted, eliminating \textbf{\$3,200/mo} Replicate spend.
         \item Built the production \textbf{WebRTC media infrastructure} on \textbf{EKS} powering real-time voice-AI calls --- stood up a \textbf{coturn} TURN/STUN relay behind an internet-facing \textbf{NLB} to carry \textbf{SRTP/UDP} audio into private-subnet pods, enabling \textbf{sub-second-latency} Android$\leftrightarrow$AI voice.
@@ -171,14 +171,6 @@ ItalicFont=SourceSansPro-RegularIt.otf
     \item \textbf{AI/ML Inference:} GPU Inference (A100, L40S, H100), Diffusion Models, Codeformer, GFPGAN, vLLM, Gemma, LoRA
     \item \textbf{Scaling \& Real-time:} KEDA, Locust, WebRTC, coturn, SRTP, MySQL/InnoDB internals, CloudWatch, Marbot
     \item \textbf{Tools \& Languages:} GitHub Actions, Vault, Pritunl VPN, MySQL, Redis, Python, Bash
-\end{itemize}
-
-%%%%%%% --------------------------------------------------------------------------------------
-%%%%%%%  WRITING
-%%%%%%% --------------------------------------------------------------------------------------
-\section{Writing}
-\begin{itemize}[leftmargin=*,itemsep=0pt,parsep=2pt]
-    \item \href{https://medium.com/@mukundtiwari2/how-did-we-load-test-for-100x-traffic-6cbccf22cf0f}{\textbf{How did we load test for 100x traffic?}} --- Medium
 \end{itemize}
 
 %%%%%%% --------------------------------------------------------------------------------------

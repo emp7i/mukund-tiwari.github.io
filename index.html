@@ -15,15 +15,8 @@
             --link: #1f5f99;
         }
 
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg: #161616;
-                --text: #e4e2de;
-                --muted: #9a9894;
-                --rule: #2c2c2c;
-                --link: #8ab8e6;
-            }
-        }
+
+        :root { color-scheme: light; }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -119,7 +112,7 @@
         <section>
             <h2>Selected work</h2>
             <ul>
-                <li><strong>Load testing for peak events.</strong> Prepared Crafto for ~10M TPM. It held at 1.6M concurrent users and 6M DAU, and did INR 4 Cr in revenue in 36 hours.</li>
+                <li><strong>Load testing for peak events.</strong> Prepared Crafto for ~10M TPM. It held at 1.6M concurrent users and 19M+ DAU, and did INR 5.4 Cr in revenue in 48 hours.</li>
                 <li><strong>Self-hosted image models.</strong> Flux models I deployed now serve 30% of production traffic, bringing per-inference cost from INR 3.5–4 down to INR 0.8.</li>
                 <li><strong>GPU cost cuts.</strong> Moved upscaling from 2× A100 to 1× L40S (68% cheaper) and brought other upscalers in-house, removing $3,200/mo in Replicate spend.</li>
                 <li><strong>Real-time voice AI.</strong> Designed and shipped a WebRTC calling stack on EKS (coturn behind an NLB, pipecat/aiortc pods) with sub-second latency.</li>
