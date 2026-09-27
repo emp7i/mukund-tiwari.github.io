@@ -106,7 +106,7 @@ ItalicFont=SourceSansPro-RegularIt.otf
 \begin{center}
     \begin{minipage}[b]{0.24\textwidth}
             Bengaluru, India \\
-            \href{mailto:mukundtiwari@outlook.com}{mukundtiwari@outlook.com}
+            \href{mailto:hi@mukundtiwari.com}{hi@mukundtiwari.com}
     \end{minipage}%
     \begin{minipage}[b]{0.5\textwidth}
             \centering
@@ -117,6 +117,7 @@ ItalicFont=SourceSansPro-RegularIt.otf
     \begin{minipage}[b]{0.24\textwidth}
             \flushright
             { \href{https://www.linkedin.com/in/mukund-tiwari-184203191/}{LinkedIn Profile} } \\
+            { \href{https://medium.com/@mukundtiwari2}{Medium Blog} }
     \end{minipage}
 
 \vspace{-0.15cm}
@@ -170,6 +171,14 @@ ItalicFont=SourceSansPro-RegularIt.otf
     \item \textbf{AI/ML Inference:} GPU Inference (A100, L40S, H100), Diffusion Models, Codeformer, GFPGAN, vLLM, Gemma, LoRA
     \item \textbf{Scaling \& Real-time:} KEDA, Locust, WebRTC, coturn, SRTP, MySQL/InnoDB internals, CloudWatch, Marbot
     \item \textbf{Tools \& Languages:} GitHub Actions, Vault, Pritunl VPN, MySQL, Redis, Python, Bash
+\end{itemize}
+
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  WRITING
+%%%%%%% --------------------------------------------------------------------------------------
+\section{Writing}
+\begin{itemize}[leftmargin=*,itemsep=0pt,parsep=2pt]
+    \item \href{https://medium.com/@mukundtiwari2/how-did-we-load-test-for-100x-traffic-6cbccf22cf0f}{\textbf{How did we load test for 100x traffic?}} --- Medium
 \end{itemize}
 
 %%%%%%% --------------------------------------------------------------------------------------
